@@ -1,0 +1,94 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathabx}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage[latin1]{inputenc}
+\usepackage{mathtools}
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
+
+\title{MTH26001 Assignment 1} 
+\author{Nurseiit Abdimomyn -- 20172001}
+\date{16/09/2021}
+
+\begin{document}
+\maketitle
+
+\begin{enumerate}
+  \item
+    (Sec 2.2 - 8) Observe that any term of the form $111...111$ can be written as
+    $100m + 11 = 4 * 25m + 11$ and $4 * 25m + 11 \equiv 3 \pmod 4$ for some $m$. (a)
+    
+    As all terms of the form $111...111$ are odd, so must be the square roots of them (i.e $n^2$ is odd, then so is $n$).
+    Transform $n = 2*k + 1$ and $n^2 = 4*k^2 + 4k + 1$ which by modulo $4$ is not $3$ which we got from (a).
+    To be more precise, $n^2 = 4*k^2 + 4k + 1 \equiv 1 \neq 3 \pmod 4$.
+
+  \item
+    (Sec 2.2 - 9) For a number to be both a square and a cube it must of the form $n^6$.
+    We could prove that $n^6$ can only be either of $7k$ or $7k + 1$ by Fermat's little theorem
+    picking $p = 7$. But let's keep it short and observe that the congruent clasess of $n^6 \pmod 7$
+    is a set of $\{ 0, 1 \}$.
+
+  \item
+  (Sec 2.3 - 4d) Let's first establish a base case for induction:
+    
+    $21 \divides 4^{n + 1} + 5^{2n - 1} = 4^{1 + 1} + 5^{2 - 1} = 21$ for $n = 1$.
+
+  Assume it holds true for some $n$. Then it should follow for $n + 1$ that
+  $21 \divides 4^{(n + 1) + 1} + 5^{2*(n + 1) - 1} = 4^{n + 2} + 5^{2n + 1} = 
+  4 * 4^{n + 1} + 5^2 * 5^{2n - 1} = 4 * (4^{n + 1} + 5^{2n - 1}) + 21 * 5^{2n - 1}$.
+    
+  \item
+  (Sec 2.3 - 8b) Prove that $k * (k + 1) * (k + 2) * (k + 3) = n^2 - 1$ for some $k, n$;
+
+  Let's rearrange it like so: $k * (k + 3) * (k + 1) * (k + 2) = (k^2 + 3k) * (k^2 + 3k + 2) = 
+  ((k^2 + 3k + 1) - 1) * ((k^2 + 3k + 1) + 1) = (k^2 + 3k + 1)^2 - 1$ so $n$ is $(k^2 + 3k + 1)$.
+
+  \item
+  (Sec 2.3 - 15) We know that $gcd(a, b) = gcd(a, b - a)$.
+  
+  So, $gcd(2a - 3b, 4a - 5b) =
+  gcd(2a - 3b, 4a - 5b - (2a - 3b)) = gcd(2a - 3b, 4a - 5b - (2a - 3b) - (2a - 3b)) =
+  gcd(2a - 3b, 4a - 5b - 2 * (2a - 3b)) = gcd(2a - 3b, b)$.
+  
+  Thus, $gcd(2a - 3b, 4a - 5b) \divides b$. Let's assign $b = -1$, then it follows that $d = 1$ and
+  $gcd(2a - 3b, 4a - 5b) = gcd(2a + 3, 4a + 5) = 1$.
+
+  \item
+  (Sec 2.4 - 4c) Let $d = gcd(a + b, a^2 + b^2)$. By definition of $gcd$, we know that both $d \divides (a + b)$
+  and $d \divides (a^2 + b^2)$. Then, by rearranging $a^2 + b^2$ as $(a + b) * (a - b) + 2b^2$ and $(a + b) * (b - a) + 2a^2$ we learn that
+  $d \divides 2b^2$ and $d \divides 2a^2$.
+  
+  Consequently, $d \divides 2a^2 \land d \divides 2b^2 \implies d \divides gcd(2a^2, 2b^2)$.
+  $gcd(2a^2, 2b^2) = 2 * gcd(a^2, b^2) = 2 * (gcd(a, b))^2 = 2 * 1 ^ 2 = 2$.
+
+  Thus, $d$ is a divisor of $2$ (i.e $1$ and $2$).
+
+  ps. proof of $gcd(a^2, b^2) = (gcd(a, b))^2$ is omitted for clarity.
+
+  \item
+  (Sec 2.4 - 6) If $gcd(a, b) = 1$, prove that $gcd(a + b, ab) = 1$.
+
+  Let $d = gcd(a + b, ab)$. Now, since $d \divides a + b$ and $d \divides ab$,
+  it follows that $d \divides a * (a + b) - ab = a^2$ -- similar for $d \divides b^2$.
+
+  Similar to the proof in (Sec 2.4 - 4c), $d \divides a^2 \land d \divides b^2 \implies
+  d \divides gcd(a^2, b^2) = (gcd(a, b))^2 = 1^2 = 1$. So $d = gcd(a + b, ab) = 1$.
+
+  \item
+  (Sec 2.5 - 3b) $54x + 21y = 906$. $gcd(54, 21) = 3 \divides 906$, so there's a solution.
+  Simplify to $18x + 7y = 302$. By brute force find that $x = 2, y = 38$ is one solution.
+
+  Substituting $7$ for $x$ for $16$ in $y$ we find other solutions. So $x = 2, y = 38; x = 16, y = 2; x = 9, y = 20;$
+
+  \item
+  (Sec 2.5 - 5c) $6x + 9y = 126$ and $9x + 6y = 114$, then subtracting one from the other we get
+  $3y - 3x = 12$, dividing each side by $3$ is $y - x = 4$, $y = x + 4$.
+
+  Substituting for $y$ in the initial equation we get $9x + 6*(x + 4) = 114$. Solving for $x = 6$.
+  Then $y = x + 4$, so $y = 6 + 4 = 10$. Thus, $x = 6, y = 10$.
+\end{enumerate}
+
+\end{document}
