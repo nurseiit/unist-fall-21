@@ -1,0 +1,107 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathabx}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage[latin1]{inputenc}
+\usepackage{mathtools}
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
+
+\title{MTH26001 Assignment 3} 
+\author{Nurseiit Abdimomyn -- 20172001}
+\date{13/10/2021}
+
+\begin{document}
+\maketitle
+
+\begin{enumerate}
+  \item
+    (Sec 4.2 - 3)
+    
+    Given $a \equiv b \pmod n$ implies that $k*n = a - b$ for some $k$.
+    Because $gcd(b, n) \divides b$ and $gcd(b, n) \divides n$, it's also
+    true that $gcd(b, n) \divides a = k*n + b$.
+
+    Since $gcd(b, n) \divides a$, it should imply that $gcd(b, n) \divides gcd(a, n)$.
+
+    Then, we could also prove similar for $b = a - k*n$. Because $gcd(a, n) \divides a$ and $gcd(a, n) \divides n$, it's should
+    follow that $gcd(a, n) \divides b = a - k*n$.
+
+    Since $gcd(a, n) \divides b$, it should imply that $gcd(a, n) \divides gcd(b, n)$.
+
+    Thus, $gcd(a, n) \divides gcd(b, n)$ and $gcd(b, n) \divides gcd(a, n)$ implies that $gcd(a, n) = gcd(b, n)$.
+
+  \item
+    (Sec 4.2 - 5)
+
+    $53^{103} \equiv 1^{103} \pmod 13$ and $103^{53} \equiv (-1)^{53} \pmod {13}$.
+
+    Thus, $53^{103} + 103^{53} \equiv 1^{103} + (-1)^{53} \equiv 0 \pmod {13}$.
+
+    Also, $53^{103} \equiv (-1)^{103} \pmod 3$ and $103^{53} \equiv 1^{53} \pmod 3$.
+
+    Thus, $53^{103} + 103^{53} \equiv (-1)^{103} + 1^{53} \equiv 0 \pmod 3$. \\ \\
+
+    $111^{333} + 4^{111} \equiv (-1)^{333} + 4^{111} \pmod 7$
+
+    $\equiv (-1)^{333} + (4^3)^{37} \pmod 7$
+
+    $\equiv (-1)^{333} + 1^{37} \equiv 0 \pmod 7$ [as $64 \equiv 1 \pmod 7$].
+
+  \item
+    (Sec 4.2 - 11)
+
+    ${0, 2^0, 2^1, ..., 2^9} \equiv {0, 1, 2, 4, 8, 16, 32, 64, 128, 256, 512}$
+    
+    $\equiv {0, 1, 2, 4, 8, 5, 10, 9, 7, 3, 6} \pmod{11}$, thus a complete residue set modulo $11$. \\ \\
+
+    But, $0, 1^2, 2^2, ..., 10^2$ is not a complete residue set modulo $11$ because $1^2 \equiv 10^2 \pmod {11}$.
+
+  \item
+    (Sec 4.3 - 3)
+
+    Let's look for the period of $9^n \pmod {100}$:
+
+    so powers of nine modulo hundred are $1, 9, 81, 29, 61, 49, 41, 69, 21, 89, 1$, with a period of $10$.
+
+    Since $9^9 \equiv 9 \pmod {10}$ (here $10$ is our period), $9^{9^9} \equiv 89 \pmod {100}$.
+
+  \item
+    (Sec 4.3 - 10)
+
+    All numbers $n$ with digits adding up to $15$ are $n \equiv 6 \pmod 9$. However,
+    for all $a$, it's true that $a^3 \equiv 0, 1, 8 \pmod 9$ and $a^2 \equiv 1, 4, 7 \pmod 9$.
+
+    Thus, $n$ can not be a cube or a square.
+
+  \item
+    (Sec 4.3 - 11)
+
+    $495 = 5 * 9 * 11$, the resulting number should be divisible by all three $5$, $9$, and $11$.
+
+    Since $273x49y5$ ends with $5$, it already is divisible by $5$.
+
+    In case of $9$, sum of digits should be divisible by $9$:
+
+    $2 + 7 + 3 + x + 4 + 9 + y + 5 \equiv 0 \pmod 9$
+
+    $\equiv 3 + x + y \equiv 0 \pmod 9$.
+
+    In case of $11$, alternating sum of digits should be divisible by $11$:
+
+    $2 + 3 + 4 + y - (7 + x + 9 + 5) \equiv 0 \pmod {11}$
+
+    $x - y + 1 \equiv 0 \pmod{11}$.
+
+    Thus, since $0 \leq x, y \leq 9$, there is only one solution: 
+
+    $x = 7, y = 8$.
+
+    Indeed, $27374985 \equiv 0 \pmod{495}$.
+
+
+\end{enumerate}
+
+\end{document}
