@@ -101,6 +101,52 @@
 
     Indeed, $27374985 \equiv 0 \pmod{495}$.
 
+  \item
+    (Sec 4.3 - 25)
+
+    Let's first prove that for any prime $p$, that it's either of form $6k + 1$ or $6k - 1$.
+
+    Considering all numbers in a form $6k + r$ we see that:
+
+    $6k + 0$ is divisible by $6$.
+
+    $6k + 1$ has no apparent divisor.
+
+    $6k + 2$ is divisible by $2$.
+
+    $6k + 3$ is divisible by $3$.
+
+    $6k + 4$ is divisible by $2$.
+
+    $6k + 5$ has no apparent divisor [i.e $6k - 1 \pmod 6$]. \\
+
+    Let's prove the original problem for when $p = 6k + 1$ first by induction,
+
+    so it becomes: $10^{2(6k + 1)} - 10^{6k + 1} + 1 \equiv 0 \pmod{13}$.
+
+    (a). $k = 1$. $10^{14} - 10^7 + 1 \equiv 9 - 10 + 1 \equiv 0 \pmod{13}$.
+
+    (b). Assume $10^{2(6k + 1)} - 10^{6k + 1} + 1 \equiv 0 \pmod{13}$,
+
+    then, $10^{2(6(k + 1) + 1)} - 10^{6(k + 1) + 1} + 1 \equiv$
+
+    $\equiv 10^{2(6k + 7)} - 10^{6k + 7} + 1 \pmod{13}$
+
+    $\equiv 10^{2*6} * 10^{2(6k + 1)} - 10^6 * 10^{6k + 1} + 1 \equiv 0 \pmod{13}$. \\
+
+    Now, similarly for $p = 6k - 1$,
+
+    $10^{2(6k - 1)} - 10^{6k - 1} + 1 \equiv 0 \pmod{13}$.
+
+    (a). $k = 1$. $10^{10} - 10^5 + 1 \equiv 3 - 4 + 1 \equiv 0 \pmod{13}$.
+
+    (b). Assume $10^{2(6k - 1)} - 10^{6k - 1} + 1 \equiv 0 \pmod{13}$,
+
+    then, $10^{2(6(k + 1) - 1)} - 10^{6(k + 1) - 1} + 1 \equiv$
+
+    $\equiv 10^{2(6k + 5)} - 10^{6k + 5} + 1 \pmod{13}$
+
+    $\equiv 10^{2*6} * 10^{2(6k - 1)} - 10^6 * 10^{6k - 1} + 1 \equiv 0 \pmod{13}$.
 
 \end{enumerate}
 
