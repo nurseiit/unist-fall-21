@@ -1,0 +1,24 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+
+
+Vagrant.configure("2") do |config|
+  config.vm.box = "ubuntu/focal64"
+
+  config.vm.synced_folder ".", "/home/vagrant/hw"
+
+  config.vm.provider "virtualbox" do |vb|
+    vb.gui = false				# GUI Setting
+    vb.name = "cse261-1-hw1"		# Name
+    vb.memory = 1024			# 1024MiB Memory
+    vb.cpus = 2					# # of cores
+  end
+  config.vm.provision "shell", inline: <<-SHELL
+      apt-get update && apt-get install -yq build-essential unzip device-tree-compiler
+      time bash hw/init.sh
+      echo "export RISCV=/home/vagrant/tools/riscv/" >> /home/vagrant/.bashrc
+      echo "export PATH=/home/vagrant/tools/riscv/bin:$PATH" >> /home/vagrant/.bashrc
+  SHELL
+
+end
