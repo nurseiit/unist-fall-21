@@ -1,7 +1,5 @@
 
 .global matmul
-
-
 matmul:
 /* save return address (in x1) in stack*/
 /* first argument (x10): the address of output buffer */
