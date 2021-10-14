@@ -1,0 +1,17 @@
+*.i
+*.o
+*.d
+*.elf
+*.diss
+*.dasm
+*.map
+*.bin
+*.log
+.vscode
+
+*.dump
+*.verilog
+
+*.swp
+*.swo
+*.hex
